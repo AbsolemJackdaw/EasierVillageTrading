@@ -21,14 +21,15 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(MerchantScreen.class)
 public abstract class MerchantScreenMixin extends AbstractContainerScreen<MerchantMenu> {
-    
-    @Shadow private int selectedIndex;
+
+    @Shadow
+    private int shopItem;
 
     public MerchantScreenMixin(MerchantMenu merchantContainer_1, Inventory playerInventory_1, Component text_1) {
         super(merchantContainer_1, playerInventory_1, text_1);
     }
-    
-    @Inject(method="syncRecipeIndex", at=@At("RETURN"))
+
+    @Inject(method = "postButtonClick", at = @At("RETURN"))
     public void tradeOnSetRecipeIndex(CallbackInfo ci) {
         if (Screen.hasControlDown()) {
             return;
@@ -36,6 +37,6 @@ public abstract class MerchantScreenMixin extends AbstractContainerScreen<Mercha
         this.slotClicked(null, 0, 0, ClickType.QUICK_MOVE);
         this.slotClicked(null, 1, 0, ClickType.QUICK_MOVE);
 
-        ((AutoTrade)this).trade(selectedIndex);
+        ((AutoTrade) this).trade(shopItem);
     }
 }

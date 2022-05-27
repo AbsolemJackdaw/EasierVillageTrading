@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(MenuScreens.class)
 public abstract class GuiMerchantMixin {
     
-    @Inject(method = "open", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "create", at = @At("HEAD"), cancellable = true)
     private static void displayVillagerTradeGui(MenuType type, Minecraft client,
             int any, Component component, CallbackInfo ci) {
 
