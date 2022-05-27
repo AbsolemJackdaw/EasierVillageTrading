@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.Mod;
 public class OpenGuiEvent {
 
     @SubscribeEvent
-    public void openGui(ScreenOpenEvent event) {
+    public static void openGui(ScreenOpenEvent event) {
         if (event.getScreen() instanceof MerchantScreen original) {
             event.setScreen(new BetterGuiMerchant(original.getMenu(), Minecraft.getInstance().player.getInventory(), original.getTitle()));
         }
