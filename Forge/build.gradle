@@ -20,7 +20,7 @@ archivesBaseName = "${mod_name}-forge-${minecraft_version}"
 mixin {
     add sourceSets.main, "${mod_id}.refmap.json"
 
-    //config "${mod_id}.mixins.json"
+    config "${mod_id}.mixins.json"
     config "${mod_id}.forge.mixins.json"
 }
 
@@ -92,6 +92,9 @@ tasks.withType(JavaCompile) {
 processResources {
     from project(":Common").sourceSets.main.resources
 
+    filesMatching('*.mixins.json') {
+        expand "refmap_target": "${mod_id}."
+    }
 }
 
 
