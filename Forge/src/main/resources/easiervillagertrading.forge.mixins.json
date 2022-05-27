@@ -6,9 +6,9 @@
   "mixins": [
   ],
   "client": [
-    "GuiMerchantMixin",
     "MerchantScreenMixin"
   ],
+
   "injectors": {
     "defaultRequire": 1
   },
