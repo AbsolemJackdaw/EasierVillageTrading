@@ -7,11 +7,10 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.config.ModConfigEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
-@Mod("easiervillagertrading")
+@Mod(EasierVillagerTrading.MODID)
 public class EasierVillagerTrading {
 
-    //Add config handler here
-    //add server sided check for lcient side only mod
+    public static final String MODID = "easiervillagertrading";
 
     public EasierVillagerTrading() {
         ModLoadingContext.get().registerExtensionPoint(IExtensionPoint.DisplayTest.class,
