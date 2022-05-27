@@ -1,12 +1,16 @@
 {
   "required": true,
-  "package": "de.guntram.mcmod.easiervillagertrading.mixins",
-  "refmap": "EasierVillagerTrading-refmap.json",
-  "minVersion": "0.6",
+  "minVersion": "0.8",
+  "package": "com.example.examplemod.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+  ],
   "client": [
-
+  ],
+  "server": [
   ],
   "injectors": {
     "defaultRequire": 1
-  }
+  },
+  "refmap": "${refmap_target}refmap.json"
 }
