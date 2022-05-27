@@ -19,11 +19,8 @@ import net.minecraft.world.item.trading.MerchantOffers;
  */
 public class BetterGuiMerchant extends MerchantScreen implements AutoTrade {
 
-    private int frames;     //DEBUG
-
     public BetterGuiMerchant(MerchantMenu handler, Inventory inv, Component title) {
         super(handler, inv, title);
-        frames = 0; //DEBUG
     }
 
     @Override
@@ -49,13 +46,6 @@ public class BetterGuiMerchant extends MerchantScreen implements AutoTrade {
                 menu.getSlot(0).getItem().isEmpty()
                         && menu.getSlot(1).getItem().isEmpty()
                         && menu.getSlot(2).getItem().isEmpty();
-        if (frames % 300 == 0) { /*
-            System.out.println("stack 0: "+handler.getSlot(0).getStack().getTranslationKey()+"/"+handler.getSlot(0).getStack().getCount());
-            System.out.println("stack 1: "+handler.getSlot(1).getStack().getTranslationKey()+"/"+handler.getSlot(0).getStack().getCount());
-            System.out.println("stack 2: "+handler.getSlot(2).getStack().getTranslationKey()+"/"+handler.getSlot(0).getStack().getCount());
-            System.out.println("result = "+result);
-        */
-        }
         return result;
 
     }
