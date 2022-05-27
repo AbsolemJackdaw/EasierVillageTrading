@@ -25,6 +25,8 @@ mixin {
 }
 
 minecraft {
+    accessTransformer = file("src/main/resources/META-INF/accesstransformer.cfg")
+
     mappings channel: 'official', version: minecraft_version
 
     if (project.hasProperty('forge_ats_enabled') && project.findProperty('forge_ats_enabled').toBoolean()) {

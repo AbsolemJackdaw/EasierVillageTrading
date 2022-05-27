@@ -5,6 +5,7 @@
  */
 package de.guntram.mcmod.easiervillagertrading;
 
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.MerchantScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
@@ -21,6 +22,18 @@ public class BetterGuiMerchant extends MerchantScreen implements AutoTrade {
 
     public BetterGuiMerchant(MerchantMenu handler, Inventory inv, Component title) {
         super(handler, inv, title);
+    }
+
+    @Override
+    public void postButtonClick() {
+        super.postButtonClick();
+        if (Screen.hasControlDown()) {
+            return;
+        }
+        this.slotClicked(null, 0, 0, ClickType.QUICK_MOVE);
+        this.slotClicked(null, 1, 0, ClickType.QUICK_MOVE);
+
+        ((AutoTrade) this).trade(this.shopItem);
     }
 
     @Override
@@ -199,4 +212,6 @@ public class BetterGuiMerchant extends MerchantScreen implements AutoTrade {
         // System.out.println("Clicking slot "+slot);
         this.slotClicked(null, slot, 0, ClickType.PICKUP);
     }
+
+
 }
